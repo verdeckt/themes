@@ -295,56 +295,30 @@
     opacity: 1;
 }
 
-/* Reseller List Styles */
-.reseller-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 15px 0;
+.blockform table td .button {
+    padding: 3px 10px;
+    font-size: 0.9em;
+    white-space: nowrap;
 }
 
-.reseller-table th,
-.reseller-table td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid var(--gs-border);
-}
-
-.reseller-table th {
-    background-color: var(--gs-secondary);
-    color: var(--gs-text);
-    font-weight: bold;
-}
-
-.reseller-table tr:hover {
-    background-color: var(--gs-hover);
-}
-
-.reseller-table a {
+.blockform table td a:not(.button) {
     text-decoration: none;
     color: var(--gs-primary);
 }
 
-.reseller-table a:hover {
+.blockform table td a:not(.button):hover {
     text-decoration: underline;
 }
 
-.reseller-note {
-    color: #888;
-    font-size: 0.9em;
-    margin-top: 15px;
-    padding: 10px;
-    background-color: var(--gs-secondary);
-    border-radius: 3px;
+.section-header {
+    user-select: none;
 }
 
-/* Mobile Responsive */
-@media screen and (max-width: 768px) {
-    .reseller-table {
-        font-size: 14px;
-    }
-    
-    .reseller-table th,
-    .reseller-table td {
-        padding: 8px 5px;
-    }
+.section-header .fa-magnet {
+    opacity: 0.7;
+    font-size: 14px;
+}
+
+.section-header:hover .fa-magnet {
+    opacity: 1;
 }

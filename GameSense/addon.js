@@ -125,59 +125,84 @@ class GSEnhancedUI {
     }
 
     setupResellerList() {
-        const paymentContainer = document.querySelector('#brdmain');
-        if (!paymentContainer || !window.location.href.includes('payment.php')) return;
+        const extendGameSense = document.querySelector('.blockform');
+        if (!extendGameSense || !window.location.href.includes('payment.php')) return;
     
         const resellerSection = document.createElement('div');
         resellerSection.className = 'blockform';
         resellerSection.innerHTML = `
-            <h2><span>Reseller List</span></h2>
+            <h2>
+                <span>
+                    <div style="display: flex; align-items: center; cursor: pointer;" class="section-header">
+                        <i class="fa fa-magnet" style="margin-right: 8px; transition: transform 0.3s ease"></i>
+                        Verified Resellers
+                    </div>
+                </span>
+            </h2>
             <div class="box">
                 <div class="fakeform">
                     <div class="inform">
                         <fieldset>
-                            <legend>Verified Resellers</legend>
+                            <legend>Alternative Payment Methods</legend>
                             <div class="fakeform">
                                 <p>Below is a list of verified resellers. Please be careful and only deal with listed resellers to avoid scams.</p>
-                                <table class="reseller-table">
+                                <table>
                                     <tr>
                                         <th class="tcl">Reseller</th>
                                         <th class="tcl">Payment Methods</th>
+                                        <th class="tcl">Price</th>
+                                        <th class="tcl">Action</th>
                                     </tr>
                                     <tr>
-                                        <td><a href="viewtopic.php?id=23385">Sigma</a></td>
-                                        <td>Crypto, PayPal, CashApp (24 USD)</td>
+                                        <td><a href="profile.php?id=1">Sigma</a></td>
+                                        <td>Crypto, PayPal, CashApp</td>
+                                        <td>24 USD</td>
+                                        <td><a href="viewtopic.php?id=23385" class="button">Purchase</a></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="viewtopic.php?id=17427">Kent Game</a></td>
-                                        <td>花呗，微信，支付宝，QQ红包 (135 RMB)</td>
+                                        <td><a href="profile.php?id=2933">death1989</a></td>
+                                        <td>花呗，微信，支付宝，QQ红包</td>
+                                        <td>135 RMB</td>
+                                        <td><a href="viewtopic.php?id=17427" class="button">Purchase</a></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="viewtopic.php?id=17435">阿泽服务</a></td>
-                                        <td>支付宝/微信/QQ/QIWI/淘宝/PayPal (135 RMB)</td>
+                                        <td><a href="profile.php?id=3031">484481617</a></td>
+                                        <td>支付宝/微信/QQ/QIWI/淘宝/PayPal</td>
+                                        <td>135 RMB</td>
+                                        <td><a href="viewtopic.php?id=17435" class="button">Purchase</a></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="viewtopic.php?id=25671">Insta Resell</a></td>
+                                        <td><a href="profile.php?id=1699">tiagovski</a></td>
                                         <td>PayPal, Bank, Card, Crypto, PSC, Alipay, Pix</td>
+                                        <td>20 EUR</td>
+                                        <td><a href="viewtopic.php?id=25671" class="button">Purchase</a></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="viewtopic.php?id=45009">Flux HvH</a></td>
-                                        <td>支付宝，微信 (中国支付方式)</td>
+                                        <td><a href="profile.php?id=10043">Margele</a></td>
+                                        <td>支付宝，微信</td>
+                                        <td>148.88 CNY</td>
+                                        <td><a href="viewtopic.php?id=45009" class="button">Purchase</a></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="viewtopic.php?id=43045">Samo's Service</a></td>
+                                        <td><a href="profile.php?id=12434">Samo</a></td>
                                         <td>PayPal, Giropay, TF2, Crypto, Skrill</td>
+                                        <td>21 EUR</td>
+                                        <td><a href="viewtopic.php?id=43045" class="button">Purchase</a></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="viewtopic.php?id=17477">Keys & Skins</a></td>
+                                        <td><a href="profile.php?id=274">ag96</a></td>
                                         <td>TF2 Keys, PayPal, Skins, BTC, ETH</td>
+                                        <td>23.5 USD</td>
+                                        <td><a href="viewtopic.php?id=17477" class="button">Purchase</a></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="viewtopic.php?id=27735">Online Buy</a></td>
+                                        <td><a href="profile.php?id=9060">VKVKF</a></td>
                                         <td>Cards RU/EU/KZ/UA/ASIA, All Crypto</td>
+                                        <td>30 USD</td>
+                                        <td><a href="viewtopic.php?id=27735" class="button">Purchase</a></td>
                                     </tr>
                                 </table>
-                                <p class="reseller-note">⚠️ Always verify the reseller's profile and reputation before making any payments.</p>
+                                <p>⚠️ Always verify the reseller's profile and reputation before making any payments. Be aware of scammers impersonating verified resellers.</p>
                             </div>
                         </fieldset>
                     </div>
@@ -185,7 +210,43 @@ class GSEnhancedUI {
             </div>
         `;
     
-        paymentContainer.appendChild(resellerSection);
+        const firstBlockform = document.querySelector('.blockform');
+        firstBlockform.parentNode.insertBefore(resellerSection, firstBlockform.nextSibling);
+    
+        const addCollapseFunction = (section) => {
+            const header = section.querySelector('.section-header');
+            const content = section.querySelector('.box');
+            const icon = header.querySelector('.fa-magnet');
+            
+            const isSectionCollapsed = GM_getValue(`section_${header.textContent.trim()}_collapsed`, false);
+            if (isSectionCollapsed) {
+                content.style.display = 'none';
+                icon.style.transform = 'rotate(180deg)';
+            }
+    
+            header.addEventListener('click', () => {
+                const isCollapsed = content.style.display === 'none';
+                content.style.display = isCollapsed ? '' : 'none';
+                icon.style.transform = isCollapsed ? '' : 'rotate(180deg)';
+                GM_setValue(`section_${header.textContent.trim()}_collapsed`, !isCollapsed);
+            });
+        };
+    
+        document.querySelectorAll('.blockform').forEach(section => {
+            const header = section.querySelector('h2');
+            if (header && !header.querySelector('.section-header')) {
+                const headerContent = header.innerHTML;
+                header.innerHTML = `
+                    <span>
+                        <div style="display: flex; align-items: center; cursor: pointer;" class="section-header">
+                            <i class="fa fa-magnet" style="margin-right: 8px; transition: transform 0.3s ease"></i>
+                            ${headerContent}
+                        </div>
+                    </span>
+                `;
+            }
+            addCollapseFunction(section);
+        });
     }
 
     enableUndercoverMode() {
