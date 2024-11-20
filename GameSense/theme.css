@@ -294,3 +294,57 @@
 .fa-eye:hover, .fa-eye-slash:hover {
     opacity: 1;
 }
+
+/* Reseller List Styles */
+.reseller-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+.reseller-table th,
+.reseller-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--gs-border);
+}
+
+.reseller-table th {
+    background-color: var(--gs-secondary);
+    color: var(--gs-text);
+    font-weight: bold;
+}
+
+.reseller-table tr:hover {
+    background-color: var(--gs-hover);
+}
+
+.reseller-table a {
+    text-decoration: none;
+    color: var(--gs-primary);
+}
+
+.reseller-table a:hover {
+    text-decoration: underline;
+}
+
+.reseller-note {
+    color: #888;
+    font-size: 0.9em;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: var(--gs-secondary);
+    border-radius: 3px;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+    .reseller-table {
+        font-size: 14px;
+    }
+    
+    .reseller-table th,
+    .reseller-table td {
+        padding: 8px 5px;
+    }
+}

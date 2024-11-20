@@ -12,6 +12,7 @@ class GSEnhancedUI {
         this.removeSubscribeLink();
         this.addRollButton();
         this.setupUndercoverMode();
+        this.setupResellerList();
         document.body.setAttribute('data-theme', this.currentTheme);
     }
 
@@ -121,6 +122,70 @@ class GSEnhancedUI {
 
             loggedInSpan.appendChild(eyeButton);
         }
+    }
+
+    setupResellerList() {
+        const paymentContainer = document.querySelector('#brdmain');
+        if (!paymentContainer || !window.location.href.includes('payment.php')) return;
+    
+        const resellerSection = document.createElement('div');
+        resellerSection.className = 'blockform';
+        resellerSection.innerHTML = `
+            <h2><span>Reseller List</span></h2>
+            <div class="box">
+                <div class="fakeform">
+                    <div class="inform">
+                        <fieldset>
+                            <legend>Verified Resellers</legend>
+                            <div class="fakeform">
+                                <p>Below is a list of verified resellers. Please be careful and only deal with listed resellers to avoid scams.</p>
+                                <table class="reseller-table">
+                                    <tr>
+                                        <th class="tcl">Reseller</th>
+                                        <th class="tcl">Payment Methods</th>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="viewtopic.php?id=23385">Sigma</a></td>
+                                        <td>Crypto, PayPal, CashApp (24 USD)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="viewtopic.php?id=17427">Kent Game</a></td>
+                                        <td>花呗，微信，支付宝，QQ红包 (135 RMB)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="viewtopic.php?id=17435">阿泽服务</a></td>
+                                        <td>支付宝/微信/QQ/QIWI/淘宝/PayPal (135 RMB)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="viewtopic.php?id=25671">Insta Resell</a></td>
+                                        <td>PayPal, Bank, Card, Crypto, PSC, Alipay, Pix</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="viewtopic.php?id=45009">Flux HvH</a></td>
+                                        <td>支付宝，微信 (中国支付方式)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="viewtopic.php?id=43045">Samo's Service</a></td>
+                                        <td>PayPal, Giropay, TF2, Crypto, Skrill</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="viewtopic.php?id=17477">Keys & Skins</a></td>
+                                        <td>TF2 Keys, PayPal, Skins, BTC, ETH</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="viewtopic.php?id=27735">Online Buy</a></td>
+                                        <td>Cards RU/EU/KZ/UA/ASIA, All Crypto</td>
+                                    </tr>
+                                </table>
+                                <p class="reseller-note">⚠️ Always verify the reseller's profile and reputation before making any payments.</p>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        `;
+    
+        paymentContainer.appendChild(resellerSection);
     }
 
     enableUndercoverMode() {
