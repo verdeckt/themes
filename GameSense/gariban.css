@@ -29,42 +29,6 @@
     color: var(--gs-primary);
 }
 
-[data-theme="default"] {
-    /* Dont touch */
-}
-
-/* Light Red Theme */
-[data-theme="light-red"] .pun a:link,
-[data-theme="light-red"] .pun a:visited,
-[data-theme="light-red"] .pun .tcl h3 a,
-[data-theme="light-red"] #brdmenu a:link,
-[data-theme="light-red"] #brdmenu a:visited {
-    color: #ff4444 !important;
-}
-
-[data-theme="light-red"] .pun a:hover,
-[data-theme="light-red"] .pun a:active,
-[data-theme="light-red"] .pun .tcl h3 a:hover,
-[data-theme="light-red"] #brdmenu a:hover {
-    color: #ff6666 !important;
-}
-
-/* Light Orange Theme */
-[data-theme="light-orange"] .pun a:link,
-[data-theme="light-orange"] .pun a:visited,
-[data-theme="light-orange"] .pun .tcl h3 a,
-[data-theme="light-orange"] #brdmenu a:link,
-[data-theme="light-orange"] #brdmenu a:visited {
-    color: #ffa500 !important;
-}
-
-[data-theme="light-orange"] .pun a:hover,
-[data-theme="light-orange"] .pun a:active,
-[data-theme="light-orange"] .pun .tcl h3 a:hover,
-[data-theme="light-orange"] #brdmenu a:hover {
-    color: #ffc04d !important;
-}
-
 /* Profile Preview Style */
 .gs-profile-preview {
     position: absolute;
@@ -234,7 +198,74 @@
     text-shadow: 0 0 5px rgba(180, 230, 30, 0.3);
 }
 
-/* Loading */
+/* Quick Reply Styling */
+.gs-formatting-toolbar {
+    background: #353534;
+    border: 1px solid #454545;
+    border-radius: 3px;
+    padding: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    gap: 5px;
+}
+
+.gs-formatting-toolbar button {
+    background: #272726;
+    border: 1px solid #454545;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.gs-formatting-toolbar button:hover {
+    background: #e61515;
+    border-color: #e61515;
+}
+
+.gs-formatting-toolbar button i {
+    font-size: 12px;
+}
+
+/* Quick Reply Textarea */
+#quickpost textarea {
+    background: #272726;
+    border: 1px solid #454545;
+    color: #fff;
+    padding: 10px;
+    border-radius: 3px;
+    width: 100%;
+    min-height: 100px;
+    margin: 5px 0;
+    font-family: inherit;
+    resize: vertical;
+}
+
+#quickpost textarea:focus {
+    border-color: #e61515;
+    outline: none;
+}
+
+/* Submit Button */
+#quickpost input[type="submit"] {
+    background: #e61515;
+    border: none;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#quickpost input[type="submit"]:hover {
+    background: #ff1f1f;
+}
+
+/* Loading Animation */
 .gs-profile-preview .loading {
     display: flex;
     align-items: center;
@@ -262,10 +293,12 @@
     padding: 20px;
 }
 
+/* Hide Subscribe Link */
 .subscribelink {
     display: none !important;
 }
 
+/* Category Headers */
 .blocktable h2 {
     transition: background-color 0.3s ease;
     cursor: pointer;
@@ -282,6 +315,7 @@
     opacity: 1;
 }
 
+/* Eye Icon */
 .fa-eye, .fa-eye-slash {
     font-size: 14px;
     padding: 2px;
@@ -295,70 +329,41 @@
 
 /* Chat Roll Button */
 .chat-roll {
-    background: var(--gs-secondary);
-    border-radius: 3px;
+    background: #353534;
+    border: 1px solid #454545;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 2px;
+    cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .chat-roll:hover {
-    background: var(--gs-hover);
-    transform: scale(1.05);
-}
-
-/* Code Block Styles */
-.gs-code-block {
-    background: #1e1e1e !important;
-    color: #d4d4d4;
-    padding: 15px !important;
-    border-radius: 4px;
-    font-family: 'Consolas', monospace;
-    line-height: 1.4;
-    position: relative;
-    margin: 10px 0;
-}
-
-.gs-copy-btn {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background: rgba(255,255,255,0.1);
-    border: none;
-    border-radius: 3px;
-    padding: 4px 8px;
-    color: #fff;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.2s;
-}
-
-.gs-code-block:hover .gs-copy-btn {
-    opacity: 1;
-}
-
-/* Chat Enhancements */
-.gs-chat-filters {
-    display: flex;
-    gap: 10px;
-    padding: 5px;
-    background: var(--gs-secondary);
-    border-radius: 4px;
-    margin-bottom: 5px;
-}
-
-.gs-chat-filters label {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    color: var(--gs-text);
-    font-size: 12px;
+    background: #e61515;
+    border-color: #e61515;
 }
 
 /* Emoji Picker */
+.gs-emoji-button {
+    background: #272726;
+    border: 1px solid #454545;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.gs-emoji-button:hover {
+    background: #e61515;
+    border-color: #e61515;
+}
+
 .gs-emoji-picker {
     position: absolute;
-    background: var(--gs-background);
-    border: 1px solid var(--gs-border);
-    border-radius: 4px;
+    background: #272726;
+    border: 1px solid #454545;
+    border-radius: 3px;
     padding: 10px;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
@@ -370,7 +375,7 @@
 
 .gs-emoji-category .title {
     font-size: 12px;
-    color: var(--gs-text);
+    color: #fff;
     opacity: 0.7;
     margin-bottom: 5px;
 }
@@ -386,47 +391,40 @@
     transform: scale(1.2);
 }
 
-/* Mention System */
-.gs-mention-suggestions {
-    position: absolute;
-    background: var(--gs-background);
-    border: 1px solid var(--gs-border);
-    border-radius: 4px;
-    max-height: 200px;
-    overflow-y: auto;
-    z-index: 1000;
-}
-
-.mention-suggestion {
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.mention-suggestion:hover {
-    background: var(--gs-hover);
-}
-
-/* Thread Navigation */
-.gs-thread-nav {
-    display: flex;
-    gap: 5px;
-    margin: 10px 0;
-}
-
-.gs-thread-nav button {
-    background: var(--gs-secondary);
-    border: none;
-    padding: 5px 10px;
+/* Code Blocks */
+.gs-code-block {
+    background: #1e1e1e !important;
+    color: #d4d4d4;
+    padding: 15px !important;
     border-radius: 3px;
-    color: var(--gs-text);
-    cursor: pointer;
-    transition: all 0.2s;
+    font-family: 'Consolas', monospace;
+    line-height: 1.4;
+    position: relative;
+    margin: 10px 0;
+    border: 1px solid #454545;
 }
 
-.gs-thread-nav button:hover {
-    background: var(--gs-hover);
-    transform: translateY(-1px);
+.gs-copy-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #353534;
+    border: 1px solid #454545;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 2px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+.gs-code-block:hover .gs-copy-btn {
+    opacity: 1;
+}
+
+.gs-copy-btn:hover {
+    background: #e61515;
+    border-color: #e61515;
 }
 
 /* Responsive Design */
@@ -437,8 +435,8 @@
         transform: none;
     }
 
-    .gs-chat-filters {
-        flex-direction: column;
+    .gs-formatting-toolbar {
+        flex-wrap: wrap;
     }
 
     .gs-emoji-picker {
